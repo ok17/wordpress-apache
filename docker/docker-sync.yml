@@ -1,0 +1,21 @@
+version: 2
+syncs:
+  my-volume:
+    src: '../'
+    dest: '/var/www/html'
+    sync_strategy: 'rsync'
+    sync_host_ip: '127.0.0.1'
+
+    sync_host_port: 10999
+    sync_excludes_type: 'Name'
+
+    sync_excludes: ['docker', '.DS_Store', '.idea']
+    #sync_args: '-v'
+
+    sync_userid: '33'
+    #sync_group: 'root'
+
+    watch_args: '-v'
+
+    watch_excludes: ['.*/.git']
+    watch_strategy: 'fswatch'

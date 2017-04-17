@@ -1,0 +1,44 @@
+version: '2'
+services:
+  apache:
+    build: ./apache
+    container_name: apache-container
+    hostname: apache-hostname
+    volumes:
+     - my-volume:/var/www/html:rw
+    networks:
+      - my-networks
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=user
+      - WORDPRESS_DB_PASSWORD=password
+      - WORDPRESS_DB_NAME=mydb
+      - WORDPRESS_TABLE_PREFIX=wp_
+  db:
+    image: mysql:latest
+    container_name: db-container
+    hostname: db-hostname
+    volumes:
+      - my-vdb:/var/lib/mysql
+      - ./db/myconf.d/:/etc/mysql/conf.d/
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=mydb
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - my-networks
+volumes:
+  my-vdb:
+  my-volume:
+    external: true
+
+networks:
+  my-networks:
+    driver: bridge
