@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/* form 系*/
+.form-grp {
+  margin-bottom: 15px;
+}
+
+.tbl-inline {
+  vertical-align: middle;
+  text-align: center;
+  #{&}__item {
+    display: inline-block;
+  }
+}
+
+.form-ctl {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.form-text {
+  border: none !important;
+  border-bottom: 1px solid #000000 !important;
+}
+.form__submit {
+  text-align: center;
+
+}
+
+.form-text:focus {
+  box-shadow: none !important;
+}
+
+
+.form-label {
+  //padding-top: calc(1rem - 1px * 2);
+  //padding-bottom: calc(1rem - 1px * 2);
+  //margin-bottom: 0;
+}
+//input, button, textarea, select {
+//  margin: 0;
+//  padding: 0;
+//  background: none;
+//  border: none;
+//  border-radius: 0;
+//  outline: none;
+//  //-webkit-appearance: none;
+//  //-moz-appearance: none;
+//  //appearance: none;
+//  //-webkit-appearance: none;
+//  //-moz-appearance: none;
+//  //appearance: none;
+//}
+
+select,
+input,
+textarea {
+  outline: none;
+  border: 1px solid #7c7c7c;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+  box-shadow: 0 0 7px #4e4e4e;
+  border: 1px solid #323232;
+}
+
+textarea,
+input[type="email"],
+input[type="text"] {
+  width: 100%;
+  font-size: 1.6rem;
+  border-radius: 5px;
+}
+
+input[type="date"] {
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.square-radio{
+  label{
+    display: block;
+    float: left;
+    cursor: pointer;
+    width: 60px;
+    margin: 0;
+    padding: 5px;
+    background: #b3d271;
+    color: #000;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1;
+    transition: 0.2s;
+
+    &:first-of-type {
+      border-radius: 3px 0 0 3px;
+    }
+
+    &:last-of-type {
+      border-radius: 0 3px 3px 0;
+    }
+  }
+  input[type="radio"] {
+    display: none;
+    &:checked + .square-radio-yes {
+      background-color: #0000BB;
+      color: #ffffff;
+    }
+    &:checked + .square-radio-no {
+      background-color: #8a6d3b;
+      color: #ffffff;
+    }
+    &:checked + label {
+      background-color: #8a2d78;
+      color: #ffffff;
+    }
+  }
+}
+
+.chk-radio {
+  label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 10px 20px;
+    border-radius: 2px;
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1;
+    &:before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: -10px;
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      background-color: #e4e4e4;
+      border-radius: 50%;
+    }
+  }
+  input[type="radio"] {
+    display: none;
+
+    //&:checked + label:after {
+      &:checked:after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: -4px;
+      width: 8px;
+      height: 8px;
+      margin-top: -4px;
+      border-radius: 50%;
+      background-color: #4e4e4e;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  textarea,
+  input[type="email"],
+  input[type="text"] {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+
+
+
